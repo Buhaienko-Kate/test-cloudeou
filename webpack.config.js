@@ -31,11 +31,13 @@ module.exports = (env, argv) => {
           ],
         },
         {
-          test: /\.(png|jpg|gif)$/,
+          test: /\.(png|jpg|svg|gif)$/,
           use: [
             {
               loader: 'file-loader',
-              options: {},
+              options: {
+                name: 'images/[hash]-[name].[ext]',
+              },
             },
           ],
         },
