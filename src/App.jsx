@@ -11,6 +11,8 @@ const App = () => {
   const arrayImg = [first, second, third];
 
   const authorsInfo = authorsData
+    .slice()
+    .sort((a, b) => b.pageviews - a.pageviews)
     .slice(0, 3)
     .map((author, index) => ({ ...author, image: arrayImg[index] }))
     .concat(authorsData.slice(3));
