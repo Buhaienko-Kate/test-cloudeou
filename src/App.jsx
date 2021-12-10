@@ -8,10 +8,22 @@ import third from './image/3rd.svg';
 const App = () => {
   const [authors, setAuthors] = useState([]);
 
+  const array = [first, second, third];
+
+  const info = authorsData
+    .slice()
+    .sort((a, b) => b.pageviews - a.pageviews)
+    .map((author, index, arrayImg) => {
+      if (index === arrayImg[index]) {
+        return { ...author, image: arrayImg[index] };
+      }
+      return author;
+    });
+  console.log(info);
+
   const authorsInfo = authorsData
     .slice()
     .sort((a, b) => b.pageviews - a.pageviews)
-    .map(author => ({ ...author, image: '' }))
     .map((author, index) => {
       if (index === 0) {
         return { ...author, image: first };
@@ -24,8 +36,6 @@ const App = () => {
       }
       return author;
     });
-
-  console.log(authorsInfo);
 
   const getCardsList = () => {
     setAuthors(authorsInfo);

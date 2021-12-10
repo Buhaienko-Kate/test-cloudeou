@@ -25,9 +25,7 @@ const Authors = ({ name, count_pub, pageviews, image, number }) => {
           <span className="authors-name">{name}</span>
           <span className="authors-pub">{`${count_pub} публ.`}</span>
         </td>
-        <td className="authors-svg">
-          <img src={image}></img>
-        </td>
+        <td className="authors-svg">{image && <img src={image}></img>}</td>
         <td className="authors-pageviews">{pageviews}</td>
       </tr>
     </>
